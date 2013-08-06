@@ -9,7 +9,7 @@ i)  algorithms to create random networks (small-world, ring lattice etc..)
 ii) deduce clusters in the network (MCL, mCode, clusterOne) etc...  
 
 Reference ( In Press ):
-=======================  
+-----------------------
 Konganti K, Wang G, Yang E, Cai JJ* (2013). SBEToolbox: a Matlab toolbox for biological network analysis. Evolutionary Bioinformatics    
 
 VERSION 1.1 RELEASED !  
