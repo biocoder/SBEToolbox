@@ -9,7 +9,7 @@ VERSION 1.1 RELEASED !
 
 Short WIKI: https://wsgi-promis.tamu.edu/projects/sbetoolbox/wiki/SBEToolbox_User_Manual.
 
-Some Screencasts: http://vimeo.com/64151952 and http://vimeo.com/63437114
+Some Screencasts: http://vimeo.com/64151952 and http://vimeo.com/63437114.
 
 Contact us on Twitter (@SBEToolbox).
 
