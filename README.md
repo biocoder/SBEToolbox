@@ -10,9 +10,9 @@ ii) deduce clusters in the network (MCL, mCode, clusterOne) etc...
 
 VERSION 1.1 RELEASED !  
 
-Explore our WIKI: https://wsgi-promis.tamu.edu/projects/sbetoolbox/wiki/SBEToolbox_User_Manual.  
+Short WIKI: https://wsgi-promis.tamu.edu/projects/sbetoolbox/wiki/SBEToolbox_User_Manual.  
 
-Some Screencasts:  http://vimeo.com/64151952 and http://vimeo.com/63437114
+Some Screencasts: http://vimeo.com/64151952 and http://vimeo.com/63437114
 
 Contact us on Twitter (@SBEToolbox).
 
