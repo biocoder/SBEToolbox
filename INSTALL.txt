@@ -1,0 +1,8 @@
+Installing SBEToolbox
+=====================
+1. After you download SBEToolbox, extract and change into that directory.
+2. See "help install" which shows what directory paths will be prepended to MATLAB path.
+3. Run "install" function which will add appropriate paths to MATLAB path and opens "pathtool" window.
+4. Now click on "Save" to save the paths and then on "Close" to close "pathtool" window.
+5. SBEToolbox is now installed.
+6. To start the UI, just type "SBEGUI" at the prompt.
