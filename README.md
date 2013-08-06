@@ -7,7 +7,7 @@ Some of its features include (but not limited to): algorithms to create random n
 
 VERSION 1.1 RELEASED !  
 
-Short WIKI: https://wsgi-promis.tamu.edu/projects/sbetoolbox/wiki/SBEToolbox_User_Manual.  
+Short WIKI: https://wsgi-promis.tamu.edu/projects/sbetoolbox/wiki/SBEToolbox_User_Manual.
 
 Some Screencasts: http://vimeo.com/64151952 and http://vimeo.com/63437114
 
