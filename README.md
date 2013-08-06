@@ -3,10 +3,7 @@ SBEToolbox
 
 SBEToolbox (Systems Biology and Evolution Toolbox) is developed in MATLAB as a menu-driven UI software to determine various statistics of the biological network. 
 
-Some of its features include (but not limited to): 
-
-i)  algorithms to create random networks (small-world, ring lattice etc..) 
-ii) deduce clusters in the network (MCL, mCode, clusterOne) etc...
+Some of its features include (but not limited to): algorithms to create random networks (small-world, ring lattice etc..), deduce clusters in the network (MCL, mCode, clusterOne) etc...
 
 VERSION 1.1 RELEASED !  
 
