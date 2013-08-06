@@ -1,0 +1,288 @@
+.\" Copyright (c) 2012 Stijn van Dongen
+.TH "mcx q" 1 "8 Mar 2012" "mcx q 12-068" "USER COMMANDS "
+.po 2m
+.de ZI
+.\" Zoem Indent/Itemize macro I.
+.br
+'in +\\$1
+.nr xa 0
+.nr xa -\\$1
+.nr xb \\$1
+.nr xb -\\w'\\$2'
+\h'|\\n(xau'\\$2\h'\\n(xbu'\\
+..
+.de ZJ
+.br
+.\" Zoem Indent/Itemize macro II.
+'in +\\$1
+'in +\\$2
+.nr xa 0
+.nr xa -\\$2
+.nr xa -\\w'\\$3'
+.nr xb \\$2
+\h'|\\n(xau'\\$3\h'\\n(xbu'\\
+..
+.if n .ll -2m
+.am SH
+.ie n .in 4m
+.el .in 8m
+..
+.SH NAME
+mcxquery \- compute simple graph statistics
+.SH SYNOPSIS
+
+mcxq is not in actual fact a program\&. This manual
+page documents the behaviour and options of the mcx program when
+invoked in mode \fIq\fP\&. The options \fB-h\fP, \fB--apropos\fP,
+\fB--version\fP, \fB-set\fP, \fB--nop\fP, \fB-progress\fP\ \&\fI<num>\fP
+are accessible
+in all \fBmcx\fP modes\&. They are described
+in the \fBmcx\fP manual page\&.
+
+\fBmcxquery\fP
+\fB[-abc\fP <fname> (\fIspecify label input\fP)\fB]\fP
+\fB[-imx\fP <fname> (\fIspecify matrix input\fP)\fB]\fP
+\fB[-o\fP <fname> (\fIoutput file name\fP)\fB]\fP
+\fB[-tab\fP <fname> (\fIuse tab file\fP)\fB]\fP
+\fB[--node-attr\fP (\fIoutput node degree and weight attributes\fP)\fB]\fP
+\fB[-vary-threshold\fP <start,end,step,scale> (\fIanalyze graph at similarity cutoffs\fP)\fB]\fP
+\fB[-vary-knn\fP <start,end,step,scale> (\fIanalyze graph for varying k-NN\fP)\fB]\fP
+\fB[-vary-ceil\fP <start,end,step,scale> (\fIanalyze graph for varying ceil reductions\fP)\fB]\fP
+\fB[-report-scale\fP <num> (\fIedge weight/threshold scaling\fP)\fB]\fP
+\fB[--no-legend\fP (\fIdo not output explanatory legend\fP)\fB]\fP
+\fB[--reduce\fP (\fIuse reduced matrix\fP)\fB]\fP
+\fB[--test-metric\fP (\fItest whether graph distance is metric\fP)\fB]\fP
+\fB[--test-cycle\fP (\fItest whether graph contains cycles\fP)\fB]\fP
+\fB[-test-cycle\fP <num> (\fItest cycles, report cyclees\fP)\fB]\fP
+\fB[--vary-correlation\fP (\fIanalyze graph at correlation cutoffs\fP)\fB]\fP
+\fB[--clcf\fP (\fIinclude clustering coefficient analysis\fP)\fB]\fP
+\fB[--eff\fP (\fIinclude efficiency criterion\fP)\fB]\fP
+\fB[-div\fP <num> (\fIcluster size separating value\fP)\fB]\fP
+\fB[--dim\fP (\fIreport native format and dimensions\fP)\fB]\fP
+\fB[--edges\fP (\fIoutput all arc weights, unsorted\fP)\fB]\fP
+\fB[--edges-sorted\fP (\fIoutput all arc weights, sorted\fP)\fB]\fP
+\fB[-edges-hist\fP <start,end,step,scale (\fIoutput arc weight histogram\fP)\fB]\fP
+\fB[--output-table\fP (\fIoutput logical tab separated table without key\fP)\fB]\fP
+\fB[-t\fP <num> (\fInumber of threads to use\fP)\fB]\fP
+\fB[-icl\fP <fname> (\fIinput clustering\fP)\fB]\fP
+\fB[-tf\fP spec (\fIapply tf-spec to input matrix\fP)\fB]\fP
+\fB[-h\fP (\fIprint synopsis, exit\fP)\fB]\fP
+\fB[--apropos\fP (\fIprint synopsis, exit\fP)\fB]\fP
+\fB[--version\fP (\fIprint version, exit\fP)\fB]\fP
+.SH DESCRIPTION
+
+The main use of \fBmcxquery\fP is to analyze a graph at different similarity
+cutoffs\&. Typically this is done on a graph constructed using a
+very permissive threshold\&. For example, one can create a graph from
+array expression data using \fBmcxarray\fP with a very low pearson correlation
+cutoff such as\ \&0\&.2 or\ \&0\&.3\&. Then \fBmcxquery\fP can be used to analyze
+the graph at increasingly stringent thresholds of\ \&0\&.25, 0\&.30,
+0\&.35\ \&\&.\&.\ \&0\&.95\&.
+Attributes supplied across different thresholds are the number of connected
+components, the number of singletons, adn statistics (median, average, iqr) on node degrees and edge
+weights\&.
+.SH OPTIONS
+
+.ZI 2m "\fB-abc\fP <fname> (\fIlabel input\fP)"
+\&
+.br
+The file name for input that is in label format\&.
+.in -2m
+
+.ZI 2m "\fB-imx\fP <fname> (\fIinput matrix\fP)"
+\&
+.br
+The file name for input that is in mcl native matrix format\&.
+.in -2m
+
+.ZI 2m "\fB-o\fP <fname> (\fIoutput file name\fP)"
+\&
+.br
+Set the name of the file where output should be written to\&.
+.in -2m
+
+.ZI 2m "\fB-tab\fP <fname> (\fIuse tab file\fP)"
+\&
+.br
+This option causes the output to be printed with the labels
+found in the tab file\&.
+.in -2m
+
+.ZI 2m "\fB--dim\fP (\fIreport native format and dimensions\fP)"
+\&
+.br
+This will report the matrix format (either interchange or binary)
+and the matrix dimensions\&. For a graph the two reported dimensions
+should be equal\&.
+.in -2m
+
+.ZI 2m "\fB--edges\fP (\fIoutput all arc weights, unsorted\fP)"
+\&
+'in -2m
+.ZI 2m "\fB--edges-sorted\fP (\fIoutput all arc weights, sorted\fP)"
+\&
+'in -2m
+.ZI 2m "\fB-edges-hist\fP <start,end,step,scale (\fIoutput arc weight histogram\fP)"
+\&
+'in -2m
+'in +2m
+\&
+.br
+These options are fairly self documenting\&. The result of \fB-edges-hist\fP
+is a tab separated table of bin offsets and bin counts\&.
+.in -2m
+
+.ZI 2m "\fB--output-table\fP (\fIoutput logical tab separated table without key\fP)"
+\&
+.br
+This option causes table output such as provided by \fB--vary-correlation\fP
+to be output in a logical tab-separated format rather than pretty-printed\&.
+.in -2m
+
+.ZI 2m "\fB-vary-threshold\fP <start,end,step,scale> (\fIanalyze graphs at similarity cutoffs\fP)"
+\&
+.br
+All of \fIstart\fP, \fIend\fP, \fIstep\fP and \fIscale\fP must
+be integer numbers\&. From these a list of threshold is constructed, starting
+from \fIstart / scale\fP, \fI(start + step) / scale\fP, \fI(start + 2 step) /
+scale\fP, and so on until a value larger than or equal to \fIend / scale\fP is reached\&.
+.in -2m
+
+.ZI 2m "\fB--vary-correlation\fP (\fIanalyze graphs at correlation cutoffs\fP)"
+\&
+.br
+This instructs \fBmcxquery\fP to use a threshold list suitable for use with graphs
+in which the edge weight similarities are correlations\&.
+The list starts at 0\&.2 and ends at 0\&.95 using increments of 0\&.05\&.
+If a different start or increment is required it can
+be achieved by using the \fB-vary-threshold\fP option\&.
+For example, a start of\ \&0\&.10 and an increment of\ \&0\&.02 are obtained
+by issuing \fB-vary-threshold\fP\ \&\fB10,100,2,100\fP\&.
+.in -2m
+
+.ZI 2m "defopt{--no-legend}{do not output explanatory legend}"
+\&
+.br
+For a fully parseable output format use \fB--output-table\fP\&.
+.in -2m
+
+.ZI 2m "\fB--clcf\fP (\fIinclude clustering coefficient analysis\fP)"
+\&
+'in -2m
+.ZI 2m "\fB--eff\fP (\fIinclude efficiency criterion\fP)"
+\&
+'in -2m
+'in +2m
+\&
+.br
+These options can be used to compute additional characteristics
+in the analysis of thresholded graphs with \fB--vary-correlation\fP
+and \fB-vary-threshold\fP\&. For large graphs these are relatively time-consuming
+to compute\&. More information and a reference for
+the efficiency criterion can be found in \fBclminfo(1)\fP\&.
+.in -2m
+
+.ZI 2m "\fB-vary-knn\fP <start,end,step,scale> (\fIanalyze graphs for varying k-NN\fP)"
+\&
+'in -2m
+.ZI 2m "\fB-vary-ceil\fP <start,end,step,scale> (\fIanalyze graphs for varying ceil reductions\fP)"
+\&
+'in -2m
+.ZI 2m "\fB--reduce\fP (\fIuse reduced matrix\fP)"
+\&
+'in -2m
+'in +2m
+\&
+.br
+These options cause analysis of a graph as it is subjected to reductions
+across a range of parameters\&. Refer to \fBmcxio(5)\fP for a description of
+these reductions\&. The analyses starts at the \fIend\fP argument, and
+progresses towards the \fIstart\fP argument using decrements of size
+\fIstep\fP\&. By default the reduction is always computed relative to the
+start matrix, i\&.e\&. the input matrix after \fB-tf\fP transformations have
+optionally been applied\&. Specifying \fB--reduce\fP causes this to change
+so that each new reduction is calculated relative to the reduction just
+computed\&.
+
+For graphs with ties among edge weights it may be useful to use
+\fB-tf\fP\ \&\fB\&'#tug()\&'\fP\&. This will add small perturbations to the
+edge weights and have the effect of breaking ties\&.
+By default perturbations are computed using the cosine between
+the vectors of neighbours of the two nodes incident to an edge\&.
+This can be changed to a random perturbation with
+\fB-tf\fP\ \&\fB\&'#rug()\&'\fP\&.
+.in -2m
+
+.ZI 2m "\fB--test-cycle\fP (\fItest whether graph contains cycles\fP)"
+\&
+'in -2m
+.ZI 2m "\fB-test-cycle\fP <num> (\fItest cycles, report cyclees\fP)"
+\&
+'in -2m
+'in +2m
+\&
+.br
+Test whether the input graph contains cycles\&. With the second option
+nodes that are part of a cycle are output, up to a maximum of \fI<num>\fP
+nodes\&. Use \fI<num>\fP=\fB-1\fP to output all such nodes\&.
+.in -2m
+
+.ZI 2m "\fB--test-metric\fP (\fItest whether graph distance is metric\fP)"
+\&
+.br
+This tests all possible triangle relationships\&.
+.in -2m
+
+.ZI 2m "\fB-report-scale\fP <num> (\fIedge weight / threshold scaling\fP)"
+\&
+.br
+The edge weights mean, average, and inter-quartile range,
+as well as the different threshold steps are all rescaled
+in the reported output to avoid printing of fractional part\&.
+If \fB-vary-threshold\fP was supplied then
+scaling factor specified in the argument is used\&.
+With \fB--vary-correlation\fP a scaling factor of\ \&100
+is used\&. Either can be overridden by using the present option\&.
+.in -2m
+
+.ZI 2m "\fB-div\fP <num> (\fIcluster size separating value\fP)"
+\&
+.br
+When analyzing graphs at different thresholds with one of the
+options above, \fBmcxquery\fP reports the percentage of nodes contained
+in clusters not exceeding a specified size, by default\ \&3\&.
+This number can be changed using the \fB-div\fP option\&.
+.in -2m
+
+.ZI 2m "\fB-tf\fP <tf-spec> (\fItransform input matrix values\fP)"
+\&
+.br
+Transform the input matrix values according
+to the syntax described in \fBmcxio(5)\fP\&.
+.in -2m
+
+.ZI 2m "\fB-t\fP <num> (\fInumber of threads to use\fP)"
+\&
+.br
+This has an effect only when using the \fB-vary-knn\fP option,
+and is only useful on multi-CPU machines\&.
+.in -2m
+
+.ZI 2m "\fB--node-attr\fP (\fIoutput node degree and weight attributes\fP)"
+\&
+.br
+Output is in the form of a tab separated file\&.
+The option \fB-icl\fP can be used in conjuction\&.
+.in -2m
+
+.ZI 2m "\fB-icl\fP <fname> (\fIinput clustering\fP)"
+\&
+.br
+Output for each node the size of the cluster it is in\&.
+This option can be used in conjunction with \fB--node-attr\fP\&.
+.in -2m
+.SH SEE ALSO
+
+\fBmcxio(5)\fP,
+and \fBmclfamily(7)\fP for an overview of all the documentation
+and the utilities in the mcl family\&.

@@ -1,0 +1,1 @@
+please do not delete test plugin folder. SBEToolbox uses this plugin structure to create new plugin from template

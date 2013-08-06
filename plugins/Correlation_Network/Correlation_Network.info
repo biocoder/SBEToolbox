@@ -1,0 +1,3 @@
+This plugin will infer Biological network from similarity matrices such as microarray data and convert it into node pairs for analysis with SBEToolbox. It uses mcxarray from MCL-Edge (http://micans.org/mcl/man/mcxarray.html) package.
+Kranti Konganti||Whole Systems Genomics Initiative ( WSGI ), Texas A&M University
+Correlation Network

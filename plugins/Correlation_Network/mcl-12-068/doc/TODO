@@ -1,0 +1,58 @@
+
+-  move shade1 and leader to webindex.azm; remove style.css dependency.
+   Improve css classes etc.
+   instead of <style="text-align:justify"> use <p class="j"> etcetc.
+
+o  faq.zmm:
+   there is a <br> at the end of \ans. Doing this with <div
+   style="margin-bottom:1em"> inside the <td> element failed miserably in NS
+   -- at an unexpected place, namely too much ws at *beginning* of the
+   faqsec-table.
+
+o  zoemtut:
+   there is a double <br> in html itemize env. single sufficient?
+   instead of the <br><br> to create paragraph skips between dt
+   entries, wrap each dt entry in a div, give it a class, and set
+   its margin-bottom attribute. Well, try at least.
+
+o  can I use .ns and .rs in troff for verbatim environment?
+
+o  after vbt env, no need to enter \par for html.
+   How is that for troff?
+
+*  TP not good voor toc in nroff -> paragraphs skip.
+   need sth else. using tab positions now: it will not wrap.
+   can copy the solution made for faq.zmm.
+
+o  A space at EOL could be unpleasant in troff. Confirm/refute.
+
+o  netscape sfcks because it does not correctly remember the align setting
+   if you do X, where X is probably setting the aligning locally somewhere
+   between <div></div> tags.
+
+o  should try to modularize the html macro's as much as possible.
+   did this for <a name=..> and <a href=...> (\_htmlanch and \_htmlhref).
+   Same for roff, but less urgent as roff support is not as complex
+   as html support.
+
+
+*  [  when using \fB in the \bf{} definition, no \n should occur in
+   [  the argument.
+   [  ? is that true ?
+   [  how can I prevent this from happening?
+   [  how about a directive: forbid char X until revoke? (mmm. heavy)
+
+   It is only partially true. It may lead to unwanted paragraph
+   skips in troff if the '\fB' or '\fP' part ends up on a line by itself.
+   This would be cured by escaping the newline.
+
+*  Related:
+   How to prevent context sensitive stuff like "\n." in troff.
+   Right now I map '.' always to '\&.' -- which is ok I guess.
+
+o  consistent typesetting of symbols and arguments in docs.
+   clmdist uses bf. Should be sth else?
+   italic for generic arguments 'k'.
+   typeface for actual argument, '5'.
+   ???? for mathematical symbol.
+

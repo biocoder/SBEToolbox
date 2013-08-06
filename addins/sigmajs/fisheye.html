@@ -1,0 +1,399 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+    <style>
+a.download-link,
+a.download-link:link,
+a.download-link:visited {
+    display: block;
+    margin: 0 0 10px 50px;
+    height: 95px;
+    width: 250px;
+    -moz-box-shadow:    0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
+    box-shadow:         0 3px rgba(0,0,0,0.1), inset 0 -4px rgba(0,0,0,0.1);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    color: #fff;
+    overflow: visible;
+    text-decoration: none;
+    background: #58a100; /* old browsers */
+    background: -moz-linear-gradient(top, #84C63C 0%, #489615 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#84C63C), color-stop(100%,#489615)); /* webkit */
+    background: linear-gradient(top, #84C63C 0%, #489615 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#84C63C', endColorstr='#489615',GradientType=0 ); /* ie */
+    -moz-transition:   box-shadow 0.2s ease-in-out;
+    -webit-transition: box-shadow 0.2s ease-in-out;
+    transition:        box-shadow 0.2s ease-in-out;
+    zoom: 1;
+}
+
+a.download-link:hover,
+a.download-link:active {
+    -moz-box-shadow:    0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
+    -webkit-box-shadow: 0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
+    box-shadow:         0 3px rgba(0,0,0,0.15), inset 0 -4px rgba(0,0,0,0.15), inset 0 0 80px rgba(255,255,255,0.3);
+    -moz-transition:    box-shadow 0.2s ease-in-out;
+    -webkit-transition: box-shadow 0.2s ease-in-out;
+    transition:         box-shadow 0.2s ease-in-out;
+}
+
+a.download-link span.download-content {
+    position: relative;
+    margin-left: -50px;
+    display: block;
+    background: url(download-logo.png) 0 0 no-repeat;
+    height: 95px;
+    font-family: georgia, "Bitstream Charter", serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 10px 10px 0 112px;
+}
+
+* html a.download-link,
+* html a.download-link:link,
+* html a.download-link:active,
+* html a.download-link:hover,
+* html a.download-link:active {
+    background: none;
+    box-shadow: none;
+}
+
+* html a.download-link span.download-content {
+    background: url(download-ie6.jpg) 0 0 no-repeat;
+}
+
+a.download-link span.download-title {
+    display: block;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+}
+
+.home-download a.download-link span.download-title {
+    font-size: 26px;
+}
+
+a.download-link .download-arrow {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+a.download-link:hover,
+a.download-link:active {
+    background-position: -300px 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+* html a.download-link {
+    overflow: hidden;
+    height: 105px;
+    filter: none;
+}
+
+a.download-link span.download-info {
+    display: block;
+    margin-top: 3px;
+    color: #346012;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 12px;
+}
+
+a.download-link span.download-info em {
+    display: block;
+    font-style: normal;
+}
+
+a.download-secondary,
+a.download-secondary:link,
+a.download-secondary:visited {
+    height: 45px;
+    margin-bottom: 3px;
+    margin-left: 25px;
+}
+
+* html a.download-secondary {
+    height: 48px;
+}
+
+a.download-secondary span.download-content {
+    margin-left: -25px;
+    padding-left: 55px;
+    font-size: 14px;
+    background-image: url(download-logo-sub.png);
+    height: 40px;
+    line-height: auto;
+    padding-top: 8px;
+}
+
+a.download-secondary span.download-title {
+    font-size: 22px;
+    display: inline-block;
+    padding-right: 20px;
+    padding-bottom: 3px;
+    margin-right: 5px;
+    vertical-align: middle;
+    background: url(download-arrow-sub.png) 100% 50% no-repeat;
+}
+
+.button {
+    display: inline-block;
+    background-color: #FFFFFF;
+    background-image: -moz-linear-gradient(#FFFFFF 95%, rgba(223, 239, 249, 0.15));
+    border: 1px solid #BDC6D7;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1), 0 -2px #E5EFF8 inset, 0 0 2px rgba(223, 239, 249, 0.8) inset, 0 -5px 10px rgba(223, 239, 249, 0.5) inset;
+    line-height: 24px;
+    list-style-type: none;
+    margin: 10px 0 0;
+    padding: 0;
+    font-family: georgia, serif;
+    font-size: 16px;
+    color: #2a2a2a;
+    font-style: italic;
+    padding: 5px 12px 7px 15px;
+    text-decoration: none;
+    text-shadow: 0 1px #E2F2FA;
+}
+
+.button span {
+    font-size: 120%;
+}
+
+.button-download {
+    background: #58a100; /* old browsers */
+    background: -moz-linear-gradient(top, #84C63C 0%, #489615 100%); /* firefox */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#84C63C), color-stop(100%,#489615)); /* webkit */
+    background: linear-gradient(top, #84C63C 0%, #489615 100%);
+    color: #fff;
+    text-shadow: none;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1), 0 -3px rgba(0, 0, 0, 0.1) inset;
+    border: 0;
+}
+
+.button-alt {
+    background-color: #669BE1;
+    background-image: -webkit-linear-gradient(center top , #669BE1 0%, #5784BF 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#669BE1), color-stop(100%,#5784BF)); /* webkit */
+    background-image: -moz-linear-gradient(center top , #669BE1 0%, #5784BF 100%);
+    background-image: linear-gradient(center top , #669BE1 0%, #5784BF 100%);
+    color: #fff;
+    text-shadow: none;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.1), 0 -3px rgba(0, 0, 0, 0.1) inset;
+    border: 0;
+}
+
+p { margin: 30px; }
+</style>
+  <title>sigma.js | ForceAtlas2 on a random graph</title>
+  <script src="sigma.min.js"></script>
+  <script src="sigma.parseGexf.js"></script>
+</head>
+<body>
+
+
+  <div class="container">
+    <div class="row">
+  <!--<h2 class="span12" id="post-title">Load and display a GEXF encoded graph</h2>-->
+  <script type="text/javascript">
+	if (navigator.userAgent.indexOf("Firefox")==-1)
+		document.write("<center><p><a href='#' class='button button-alt'>This page requries Firefox browser.</a></p><a href='http://www.mozilla.org/products/download.html' class='download-link download-secondary'><span class='download-content'><span class='download-title'>Firefox</span>        Free Download    </span></a></center>")
+  </script>
+
+<p><center><a href='curve_edges.html' class='button'>curve_edges<span> »</span></a>
+<a href='fisheye.html' class='button'>fisheye<span> »</span></a>
+<a href='force_atlas2.html' class='button'>force_atlas2<span> »</span></a>
+<a href='hide_non_neighbor.html' class='button'>hide_non_neighbor<span> »</span></a>
+<a href='highlight_neighbor.html' class='button'>highlight_neighbor<span> »</span></a>
+</center></p>
+
+  <div class="span12 sigma-parent" id="sigma-example-parent">
+    <div class="sigma-expand" id="sigma-example"></div>
+  </div>
+</div>
+
+
+<br>
+
+<script src="sigma.parseGexf.js"></script>
+
+<script type="text/javascript">function init() {
+  /**
+   * This is the code to write the FishEye plugin :
+   */
+
+  (function(){
+
+    // First, let's write a FishEye class.
+    // There is no need to make this class global, since it is made to be used through
+    // the SigmaPublic object, that's why a local scope is used for the declaration.
+    // The parameter 'sig' represents a Sigma instance.
+    var FishEye = function(sig) {
+      sigma.classes.Cascade.call(this);      // The Cascade class manages the chainable property
+                                             // edit/get function.
+
+      var self = this;                       // Used to avoid any scope confusion.
+      var isActivated = false;               // Describes is the FishEye is activated.
+
+      this.p = {                             // The object containing the properties accessible with
+        radius: 200,                         // the Cascade.config() method.
+        power: 2
+      };
+
+      function applyFishEye(mouseX, mouseY) {   // This method will apply a formula relatively to
+                                                // the mouse position.
+        var newDist, newSize, xDist, yDist, dist,
+            radius   = self.p.radius,
+            power    = self.p.power,
+            powerExp = Math.exp(power);
+
+        sig.graph.nodes.forEach(function(node) {
+          xDist = node.displayX - mouseX;
+          yDist = node.displayY - mouseY;
+          dist  = Math.sqrt(xDist*xDist + yDist*yDist);
+
+          if(dist < radius){
+            newDist = powerExp/(powerExp-1)*radius*(1-Math.exp(-dist/radius*power));
+            newSize = powerExp/(powerExp-1)*radius*(1-Math.exp(-dist/radius*power));
+
+            if(!node.isFixed){
+              node.displayX = mouseX + xDist*(newDist/dist*3/4 + 1/4);
+              node.displayY = mouseY + yDist*(newDist/dist*3/4 + 1/4);
+            }
+
+            node.displaySize = Math.min(node.displaySize*newSize/dist,10*node.displaySize);
+          }
+        });
+      };
+
+      // The method that will be triggered when Sigma's 'graphscaled' is dispatched.
+      function handler() {
+        applyFishEye(
+          sig.mousecaptor.mouseX,
+          sig.mousecaptor.mouseY
+        );
+      }
+
+      this.handler = handler;
+
+      // A public method to set/get the isActivated parameter.
+      this.activated = function(v) {
+        if(v==undefined){
+          return isActivated;
+        }else{
+          isActivated = v;
+          return this;
+        }
+      };
+
+      // this.refresh() is just a helper to draw the graph.
+      this.refresh = function(){
+        sig.draw(2,2,2);
+      };
+    };
+
+    // Then, let's add some public method to sigma.js instances :
+    sigma.publicPrototype.activateFishEye = function() {
+      if(!this.fisheye) {
+        var sigmaInstance = this;
+        var fe = new FishEye(sigmaInstance._core);
+        sigmaInstance.fisheye = fe;
+      }
+
+      if(!this.fisheye.activated()){
+        this.fisheye.activated(true);
+        this._core.bind('graphscaled', this.fisheye.handler);
+        document.getElementById(
+          'sigma_mouse_'+this.getID()
+        ).addEventListener('mousemove',this.fisheye.refresh,true);
+      }
+
+      return this;
+    };
+
+    sigma.publicPrototype.desactivateFishEye = function() {
+      if(this.fisheye && this.fisheye.activated()){
+        this.fisheye.activated(false);
+        this._core.unbind('graphscaled', this.fisheye.handler);
+        document.getElementById(
+          'sigma_mouse_'+this.getID()
+        ).removeEventListener('mousemove',this.fisheye.refresh,true);
+      }
+
+      return this;
+    };
+
+    sigma.publicPrototype.fishEyeProperties = function(a1, a2) {
+      var res = this.fisheye.config(a1, a2);
+      return res == s ? this.fisheye : res;
+    };
+  })();
+
+  /**
+   * Now, let's use our plugin :
+   */
+  var sigInst = sigma.init(document.getElementById('sigma-example')).drawingProperties({
+    defaultLabelColor: '#fff',
+    defaultLabelSize: 14,
+    defaultLabelBGColor: '#fff',
+    defaultLabelHoverColor: '#000',
+    labelThreshold: 6,
+    defaultEdgeType: 'curve'
+  }).graphProperties({
+    minNodeSize: 0.5,
+    maxNodeSize: 5,
+    minEdgeSize: 1,
+    maxEdgeSize: 1
+  }).mouseProperties({
+    maxRatio: 1,
+    mouseEnabled: false
+  });
+
+  // (requires "sigma.parseGexf.js" to be executed)
+  sigInst.parseGexf('input.xml');
+
+  // Finally, let's activate the FishEye on our instance:
+  sigInst.activateFishEye().draw();
+}
+
+if (document.addEventListener) {
+  document.addEventListener('DOMContentLoaded', init, false);
+} else {
+  window.onload = init;
+}
+</script>
+
+<style type="text/css">
+  /* sigma.js context : */
+  .sigma-parent {
+    position: relative;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: #222;
+    height: 100%;
+  }
+  .sigma-expand {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .buttons-container{
+    padding-bottom: 8px;
+    padding-top: 12px;
+  }
+</style>
+
+</body></html>

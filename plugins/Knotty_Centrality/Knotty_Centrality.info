@@ -1,0 +1,3 @@
+Attempts to find the sub-graph of CIJ with the highest value for knotty-centrality. Carries out a series of exhaustive searches on subsets of the nodes ranked by "indirect" betweenness centrality, then carries out a phase of hill-climbing to see whether the sub-graph can be improved by adding further nodes.|nodes = the sub-graph found|kc = its knotty-centredness|compact = 1 if compact knotty-centrality to be used, 0 otherwise||Written by Murray Shanahan, October 2011|REF: Shanahan M, Wildie M. Knotty-centrality: finding the connective core of a complex network. PLoS One. 2012;7(5):e36579. Epub 2012 May 9. PubMed PMID: 22590571; PubMed Central PMCID: PMC3348887.
+Kranti Konganti||Whole Systems Genomics Initiative ( WSGI ),|Texas A&M University.
+Knotty Centrality

@@ -1,0 +1,291 @@
+ This is a very messy and svd-centric TODO.  The items predominantly
+ relate to other graph-related applications and helper applications,
+ mostly *NOT* to mcl.
+
+
+
+mcxrand doc
+mcxarray doc?
+
+
+check documentation,
+(new aephea itemize and spacing html definitions)
+
+
+mcxarray -data ttt -write-data www -write-tab ttt.tab -o /dev/null -co 0 -skipr 1 -skipc 1
+   check dimensions / warn / diagnostic etc
+   (labels obtained from rows by default)
+
+mcxarray quantile selection in gq()
+
+$$$ mcxarray formula mini-language
+
+clm meet
+   read stack as clmdist
+   $  enable stack reads with argv type input. mclxStackReadArgv
+      -> clminfo, clmmeet will use this, except when they don't want
+      to hold everything in memory of course.
+
++todo____________________________________________________________________________
+    |                      general guidelines                                    |
+    |  - code as much as possible in high-level routines, do not micro-optimize. |
+    |    do not shun matrix allocations etc. Aim for time/memory-efficient algorithms
+    |    within this context.                                                    |
+    |____________________________________________________________________________|
+ $$$$ unify tf(), mcxi, mcxsubs languages -> first do mcxarray mini language
+  $$$ vector pair bi-iterator
+    $ mcxdump restrict tab: report intersect and difference (useful sanity-check feedback for user).
+    $ mcxload etc and sif modes;
+         allow value on the source node.
+         allow spaces if tabs are present.
+    $ clm collapse
+         -  implement add mode
+         -  currently undirected graphs only
+   ?? does mcxload work correctly with e.g. -extend-tabr and -restrict-tabc?
+         strategy for x,y resolution in all cases?
+    - make mcxarray available as library call with callback for pairwise vector comparison
+    - hidden options in clm close should be part of other clm mode.
+    - why are mclxSub and mclxChangeDomains not more alike?
+      (physical moving of column vectors in the latter).
+    ? matrix read on clustering (intra-edges only -- help --force-connected)
+  $$$ enable -j 0-2 [one job takes multiple groups]
+  fff sparse domain matrices can be mapped to canonical domains for certain operations
+      -> keep mapping along with matrix, reinstate at output time
+ $$$$ mcxi modality for strict domain identity / subsumption.
+   $$ matrix compose for canonical domains: test complete vector for direct indexing.
+      parameterize: would it help to divide target into 64K-sized chunks?
+    - mcx erdos stepmx directed graph?
+   $$ clmformat output format
+  $$$ mclExpandVector / mclvKBar should use pval rather than float?
+    $ -tf add loop transformations. #diag(max, sum, center, laplace)
+    $ mcxi uses 'int' for integers. Why not long?
+    $ three-level clustering, use mlminfo.
+    - unoptimized shortest path code.
+    -  website 800px minimum.
+    - hierarchical selection based on cluster size.
+    - make mcx alter memclean. -imx dom.hmm.content -tf '#arcsub(), gq(10),#symmcl(2.0)'
+   $$ some programs (diameter?, ctty?) do not work on directed graphs. detect/warn/prevent.
+   $$ proper initialization for streamer. think e.g. of cmax_123 (extend,fail,ignore)
+    $ mclxRead with "w" filehandle does not generate warning.
+    $ mclxWrite with "r" filehandle does not generate warning.
+    $ mclcm revisit coarsening. not a single scheme.
+    $ mcxdump --write-tabc --write-tabr --dump-domc --dump-domr are all mcxsub-y and suspect.
+    - only load connected components of size >= X; which app?  mcxload mcxsubs mcx convert
+    $ mclxReadx option to ignore loops.
+    - mcx collect has a peculiar diameter/ctty mode with special format.   
+      -> diameter integer mode rubs with floats, right now it can at least use double.
+    - orthomcl type transformations. BRH easy. PP & CO harder.
+    - mcxdump option to output largest edge lists first ..
+    - mcx query option to implement clxdo granularity.
+    - mcx convert: split stack over multiple files.
+    - mcx q or mcx equate -sub -equal -project et cetera (cf. mcxsubs language)
+    f mclvUnionv semaphore
+    $ clean up mclcm, modularize, memclean.
+    $ clean up memory logic and matrix cache/reread/transform in alg.c.
+      -> how much of caching is still needed? Drop some modes?
+      -> simplify mcl/alg.c {stream:1/0} vs {cache:1/0} vs {transforms} framework.
+    $ make mclvaDump static, unify+streamline vector dumping (+ easy macro for dumping)
+    - stress test mcxload (further)
+    - analyze dagginess (lattice characteristics)
+    - mcxerdos directed mode would be interesting for wikipedia type graphs.
+    - check mclvSelectHighest implementation with -R -S and > to >= change.
+    ! make a vector-dump-debug routine that I am happy with. perhaps build on the one in mcxdump
+    - adapt-local: check what it does when mcl iterands become very directed. Only before?
+    - clxdo <new-mode>: <id> <nb-count> <max-weight> <mean-weight> <median-weight>
+    $ clm lint (mcl lint options)
+    $ mcxdump optionally do not parenthesize singletons.
+    - visual unify of 'clm <mode> -h' and 'clm help <mode>' in clm -h
+    - check referenceable va_list autoconf macro. necessary on x86_64 + gcc ?
+    - tree distance based on average node pair subtree leaf set hamming distance, IYKWIM
+    - mcxrand -gen 1000 -add 2000 | mx/mcxdump | mx/mcxload -abc - --stream-mirror | tee ttt | cl/clm close
+         mcxdump does not dump all nodes, so mcxload reads in a smaller domain
+         with -123 instead of -abc, gaps (except for the last, if present!)
+         are filled.
+    - read in newick format
+    - add env variable for verbosity on non-matching domains
+    - taking submatrix with same domains, is that slow?
+    - test mcxarray pearson, e.g. centering. default formula centers data?
+    $ mcxdump: upper/lower; do this as -tf transformation
+      -> requires new engine for ivp.idx access.
+    $ mcxdump skeleton does not work for cat format, as body is not read/skipped.
+    $ localized inflation: is dissipation the best measure?
+    $ elaborate ENQUIRE_ON_FAIL
+    $ clm info implement clceil for flat clusterings
+    $ compare mlmfifofum and clmframe
+   ?$ mcxdump: --dump-rlines, --dump-lines no-empty option.
+    ? ../mclcm small.mci --dispatch -write stack -b2 "" -- "-if 2 -I 2" (check)
+    $ standalone generator of shadow matrices mcx x?x
+    $ transform to add diagonals in diamonds. (lattice application).
+  $$$ true tree representation
+    $ integrate skeleton read with matrix read .. ? restructure read code?
+    $ cleverer read routines (domainequatinglywise): {stack,tab,io}.h
+    - can scatter distance be fixed?
+    - try to cut back size of impala library - unify select routines.
+    - logical line based clmformat output
+    - move mcxrand code into library.
+    - package enstrict domain checks nesting all in a single interface.
+    - richer binary format (easier stats gathering)
+   $$ readx for domain etc we can use the readDomPart code.
+   $$ readx for nonnegative numbers
+   -> checked io with EQT domain specifications 
+    - slink / fibonacci heap single link clustering / skip lists
+   $$ make the mclcm coarsening/shadowing step much more pluggable
+    - optimum spanning tree
+    - annotate map matrices in matrix header, validate at IO time
+    ? use MCLXICFLAGS to specify dump-type behaviour?
+    $  fix mclvMap (error checking)
+  !?$ introduce n_alloc in mclv*
+   ?$ template ivp with float|void* union ->val would become VAL()
+    $ clean up taurus
+    $ clean up matrix.h (order, redo, and document callback equipped functions)
+    $ mclxicflags (see below)
+    ~ extend mcxi with data structures|scripting language. ruby/lua/R.
+    ~ general interchange s-expression type input syntax
+    ~ framework for functions of virtual vectors (meet, join)
+    $ prune vector.h, inline idiosyncratic stuff to place where it is used
+    $ typedef the largest pnum type (use that rather than long)
+    $ embed -tf functionality in read stage
+    - in what other scenarios might we want to optimize mclvBinary?
+    -  there is currently no way to have lint without lint-k as k=0 has special meaning internally.
+    - domain checks in clew/*.c; document/code requirements
+    $ buffer mcl interchange input (mcxExpectNum,Integer problematic)
+    ? internally replace tab by hash.
+    - clean up and document tab/streamIn implementation
+    - try to spot/frame siphoning
+    $ look at mcxsubs rand and mcxrand behaviour. mergeable?
+    / visualize mcl process dynamically
+    - stress/test suite-setup
+   @@ mcl libs do not unwind on memory errors. (culprit: vector)
+  ### an option that does both matrix, vector and ivp transforms: include -tf  -ceil-nb -knn -perturb
+    |_____________________________________|
+
+
+
+[  sublanguagues
+
+   mcxsubs val() spec at the moment takes all tf functions, including #knn.
+   It becomes dodgy when the spec can violate data integrity by transforming
+   the domain, e.g. tp() (because mcxsubs keeps and assumes certain state).
+   Conceivably a scrub() directive could be interesting as well. Note
+   that val() would better be renamed as tf().
+   This really begs the advent of | mcxi ops, tf() , dom() | unification.
+
+]
+
+
+
+#ifdef IEEE_754
+if (ISNAN(x) || ISNAN(r) || ISNAN(b) || ISNAN(n))
+   return x + r + b + n;
+#endif
+
+overlap
+   -> reintroduce transient attractor systems .. ?
+   -> when purging dag, consider node-wise   [ 1 / (1+total-#-neighbours) ] cutoff.
+   * visualize DAG. piclo
+
+-  if there is no annotation in a part of the tree, what does mlmimpromptu do?
+!? coarsening: use efficiency as cluster->node similarity?
+-  mcxsubs foo bar nonsense waits for STDIN; it should check specs first?
+?? mcxsubs: specify by label: load a list of labels from file, or read from command line.
+$$ mcxrand noise interface is cumbersome.
+?  report n_cls, n_cls - n_meet for both.
+d  mcxdump write-tabc write-tabr
+d  mcxdump --dump-{upper,lower}[i]
+-  implement mcxdump --write-tabr-shadow
+#  residue no longer adapt, s/-mvp/-o/
+#  clm close no longer -cc
+#  mcxsubs fin(weed) symmetrifies the domains. (introduced weedg)
+-  allow tab-write with empty tab
+-  stress-test clm_split_overlap
+-  mcx ?: reorder cluster sizes.
+-  audit mclxSub implementation and usage, especially NULL argument passing.
+-  mclvUpdate{Meet,Diff} speed gains are at most 25%.  worth the complexity?
+-  mlmfifofum/weave should do sth sane with loops.
+-  b 1 matrix, mclcm; does it include the max loops?
+!  stress-test subreads from binary format.  make this a unit test.
+~  binary/ascii format: in both write number of entries.
+-  mcxload -restrict-{nc,nr,nd}, -extend-{nc,nr,nd} for 123 format.
+/  readx REMOVE_LOOPS, SET_LOOPS_MAX, FORCE_LOOPS, UPPER, LOWER UPPERINC LOWERINC
+-  write ivp size in binary format and have mcxconvert report it.
+-  CHECK -pp for clminfo and mcl have changed semantics currently.
+   -> both should no longer use mclgMakeSparse
+-  last taurus dependency: expand.[ch], il_levels_*
+-  mcxerdos compute total number of paths (doable in pathmx?)
+-  mcl + stdin + lint: set cache to yes.
+-  some clmapp for custom contraction of matrices (testbed for different strategies)
+-  optify assimilation.
+-  optify mclTabHash with ON_FAIL (duplicate labels);
+-  clxdo: introduce tag which mimics clewCastActors
+-  clxdo: setting loops in various ways
+-  move level_quiet to a global setting in err.[ch]
+-  document clewCastActors transformations on input arguments.
+-  can include libraries LFLAGS be made more finegrained?
+-  mcx max does not work for matrices: it even moans about lt.
+-  mcxdump: optify dumping empty vectors/lines.
+-  clmformat: option to skip small clusters
+?  mclvCascade ?  sum, powsum, max, min
+-  check mclvAdd usage; can it be supplanted by mclvUpdateMeet(,,fltAdd) ?
+!/ force-connected=y fails with directed graphs. made quick fix I believe to work with transpose as well.
+? -dir nm option to make mcl output in nm ?
+-  is mcxassemble fully capable of doing asymmetric domains?
+-  prune usage of ugly mcxResize.
+-  clean up all the interface enums in io.h. some are not used.
+-  generalize addTranspose to mclxMergeTranspose
+!/ remove exit's from matrix library.
+!  could copy util ON_ALLOC_FAILURE compile option.
+-  convert stack code in /shmcx/stack.[ch] to generic code using callbacks.
+   -> do better job at type handling.
+-  perhaps remove propagation stuff from vectorUnary,
+   -> make vectorCascade instead.
+
+audit status of source code
+vector.[ch]
+   mclvReplaceIdx
+      mcxRand
+      ?   get rid of insanely complicated weight generation.
+      ->  option to throw away diagonal entirely or add diagonal (but mcxi can already do it).
+      mclxAddto (changed to accommodate domains)
+      mclxCatVectors (new)
+
+-  can we establish a way to incorporate a-priori information into mcl, i.e.
+   the clustering must respect a coarse a priori partitioning.  this can be
+   done by using the induced subgraphs, but is it possible to consider
+   intra-cluster edges during the mcl process, while ensuring a consistent
+   subclustering, in an elegant way?
+
+-  mcxload
+      -123-rmax:     extend options:
+      -123-cmax         fail |  ignore | extend
+      -235-cmax
+      -235-rmax (not yet implemented)>
+
+-  orthology big matrix + species annotation.
+   best reciprocal hits: mutual 1-nn, {species A, species B} - wise
+   putatitve paralogs:     s(a,b) > max s(a,x) && s(a,b) > max(b,x)
+   co-orthologs:  for BRH ..
+
+V  verify/document mcx query action on sparsely encoded graphs.
+
+include nav.html in all sec_ sections; get rid of javascript.
+
+?  binary read:
+      1) encode version of mcl
+      encode nr of matrix entries or matrix encoding size in header;
+      use this to do sanity check on reads.
+      perhaps also try to stat file and get its size.
+
+-  mcx query
+   mcx alter
+      -  do not crash on non-graph input.
+      -  separate graph from arbitrary matrix cases and support all.
+
+-  easy subselection based on sub-tab files.
+   Possibly exists already. Improve interface / clean-up / make robust /document
+   ? -list option in mcxsubs; should be subset of -tab option.
+
+-  mcxi maxto, minto operators.
+
+-  #knn acts on graph, other #modes as well. Can they crash on 2-way domains?
+   more checks and documentation.
+

@@ -1,0 +1,116 @@
+function save_GO_annotation(varargin)
+% Parses GO annotation file and stores it in as a struct inside annoation
+% directory.
+%
+% save_GO_annotation('pathToGOAnnotationFile')
+% Saves GO annotation from a file
+%
+%                   OR
+%
+% save_GO_annotation
+% Saves annotation from files inside ftpget directory of annotation folder
+%
+% Systems Biology and Evolution Toolbox (SBEToolbox).
+% Authors: Kranti Konganti, James Cai.
+% (C) Texas A&M University.
+%
+% $LastChangedDate: 2013-06-25 11:22:25 -0500 (Tue, 25 Jun 2013) $
+% $LastChangedRevision: 725 $
+% $LastChangedBy: konganti $
+%
+
+[annoPath, ~, ~] = fileparts(which(mfilename()));
+
+if nargin < 1
+    annoFTPDir = dir([annoPath, filesep, 'annotation', filesep, 'ftpget']);
+    for filei = 1:length(annoFTPDir)
+        if strcmp(annoFTPDir(filei).name, '.') || strcmp(annoFTPDir(filei).name, '..') ...
+                || strcmp(annoFTPDir(filei).name, '.svn')
+            continue;
+        else
+            file = [annoPath, filesep, 'annotation', filesep, 'ftpget', ...
+                filesep, annoFTPDir(filei).name];
+            if regexpi(char(annoFTPDir(filei).name), '\.gz$')
+                [~, filename, ~] = fileparts(file);
+                disp(['Unzipping ', file]);
+                gunzip(file, ...
+                    [annoPath, filesep, 'annotation', filesep, 'ftpget']);
+                delete(file);
+                file = [annoPath, filesep, 'annotation', filesep, 'ftpget', ...
+                    filesep, filename];
+            end
+            disp(['Saving annotation from ', file]);
+            save_annot(annoPath, file);
+        end
+    end
+else
+   save_annot(annoPath, varargin{1});
+end
+
+%% Save species list
+speciesList = {'Agrobacterium tumefaciens str. C58 (PAMGO)', ...
+    'Arabidopsis thaliana (TAIR)', ...
+    'Aspergillus nidulans (AspGD)', ...
+    'Bos taurus (GO Annotations @ EBI)', ...
+    'Caenorhabditis elegans (WormBase)', ...
+    'Candida albicans (CGD)', ...
+    'Canis lupus familiaris (GO Annotations @ EBI)', ...
+    'Danio rerio (ZFIN)', ...
+    'Dickeya dadantii (PAMGO)', ...
+    'Dictyostelium discoideum (dictyBase)', ...
+    'Drosophila melanogaster (FlyBase)', ...
+    'Escherichia coli (EcoCyc & EcoliHub)', ...
+    'Gallus gallus (GO Annotations @ EBI)', ...
+    'Homo sapiens (GO Annotations @ EBI)', ...
+    'Leishmania major (Sanger GeneDB)', ...
+    'Magnaporthe grisea (PAMGO)', ...
+    'Mus musculus (MGI)', ...
+    'Oomycetes (PAMGO)', ...
+    'Oryza sativa (Gramene)', ...
+    'Plasmodium falciparum (Sanger GeneDB)', ...
+    'Pseudomonas aeruginosa PAO1 (PseudoCAP)', ...
+    'Rattus norvegicus (RGD)', ...
+    'Reactome [multispecies] (CSHL & EBI)', ...
+    'Saccharomyces cerevisiae (SGD)', ...
+    'Schizosaccharomyces pombe (PomBase)', ...
+    'Solanaceae (SGN)', ...
+    'Sus scrofa (GO Annotations @ EBI)', ...
+    'Trypanosoma brucei (Sanger GeneDB)'
+    };
+
+save([annoPath, filesep, 'annotation', filesep, 'speciesList.mat'], 'speciesList');
+
+%% Save annotation into mat file
+function save_annot(aPath, file)
+    aid = fopen(file);
+    cols = textscan(aid, '%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%*[^\n\r]', ...
+        'Delimiter', '\t');
+    fclose(aid);
+    
+    % Skip header lines in GO annotation
+    annotation_start_row = 0;
+    for i = 1:size(cols{1}, 1)
+        if ~cellfun(@isempty, (regexp(cols{1}(i), '!', 'match'))), annotation_start_row = i; continue; end;
+    end
+    
+    % We only need 15 columns
+    annot = cell(1, 15);
+    for i = 1:15
+        cols{i} = cols{i}(annotation_start_row + 1:end);
+        annot{i} = cols{i};
+    end
+    
+    % Save annotation as struct;
+    [~, ~, fext] = fileparts(file);
+    fext = regexprep(fext, '^\.', '');
+    aSave = [aPath, filesep, 'annotation', filesep, fext, '.GO.mat'];
+    
+    annotationGO = cell2struct(annot, {'DB', 'DBObjectID', 'DBObjectSymbol', ...
+        'Qualifier', 'GOID', 'DBReference', 'Evidence', 'WithORFrom', ...
+        'GOAspect', 'DBObjectName', 'DBObjectSynonym', 'DBObjectType', 'Taxon', ...
+        'Date', 'AnnotationAssignedBy'}, 2);
+    
+    save(aSave, 'annotationGO');
+end
+
+end

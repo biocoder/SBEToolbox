@@ -1,0 +1,83 @@
+function plot_curve(x, y, isLogTrue, pTitle, pXlab, pYlab)
+%PLOT_CURVE Plot histogram curve which is log10 transformed
+% 
+% plot_curve(, isLogTrue, Title, XLabel, YLabel)
+%
+% This function plots a histogram smooth curve for log10 normalized data
+% 
+% See also: powerlawplot
+%
+% Systems Biology and Evolution Toolbox (SBEToolbox).
+% Authors: Kranti Konganti, James Cai.
+% (C) Texas A&M University.
+%
+% $LastChangedDate: 2013-05-31 14:39:05 -0500 (Fri, 31 May 2013) $
+% $LastChangedRevision: 580 $
+% $LastChangedBy: konganti $
+%
+
+if isLogTrue
+    cPos = log10(x);
+    bPos = log10(y);
+else
+    cPos = x;
+    bPos = y;
+end
+
+%d = d(isfinite(d));
+cPos = cPos(isfinite(cPos));
+bPos = bPos(isfinite(bPos));
+
+figure('Color', 'w');
+hold on;
+axis auto;
+
+%[bPos, cPos] = hist(d);
+pH = plot(cPos, bPos, 'd');
+
+[sbPos, scPos] = smoothLine(cPos, bPos, 100);
+spH = plot(sbPos, scPos);
+
+set(spH, ...
+    'LineWidth', 1.27, ...
+    'LineSmoothing', 'on', ...
+    'Color', rand(1, 3));
+
+set(pH, ...
+    'Marker', 's', ...
+    'MarkerSize', 8, ...
+    'MarkerEdgeColor', 'none', ...
+    'MarkerFaceColor', 'r');
+
+
+set(gca, ...
+    'FontName', 'AvantGarde', ...
+    'FontSize', 11, ...
+    'Box', 'off', ...
+    'TickDir', 'out', ...
+    'TickLength', [.01 .01], ...
+    'XMinorTick', 'on', ...
+    'YMinorTick', 'on', ...
+    'LineWidth', 1, ...
+    'YGrid', 'on', ...
+    'Xgrid', 'on', ...
+    'Xcolor', [.1 .1 .1], ...
+    'Ycolor', [.1 .1 .1], ...
+    'GridLineStyle', ':');
+
+tH = title(pTitle);
+set(tH, ...
+    'FontName', 'AvantGarde', ...
+    'FontWeight', 'bold', ...
+    'FontSize', 14);
+
+xH = xlabel(pXlab);
+yH = ylabel(pYlab);
+
+set([tH, xH, yH], ...
+    'FontName', 'AvantGarde');
+
+set([xH, yH], ...
+    'FontSize', 13);
+
+%plot2svg('test.svg');
