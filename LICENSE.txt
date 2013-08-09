@@ -15,6 +15,7 @@ displaying of, or linking to this Commons Deed does not create an
 attorney-client relationship. This is a human-readable summary of 
 the Legal Code (the full license).
 
+
 Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0)
 ===================================================================
 
@@ -22,6 +23,7 @@ You are free:	to Share — to copy, distribute and transmit the work
 		to Remix — to adapt the work
 
 Under the following conditions:
+-------------------------------
 
 Attribution  —  You must attribute the work in the manner
                 specified by the author or licensor (but not in any way that
@@ -56,6 +58,7 @@ Other Rights  — In no way are any of the following rights affected by the lice
 Notice        — For any reuse or distribution, you must make clear to others the
                 license terms of this work. The best way to do this is with a
                 link to this web page.
+
 
 ----------------------------------------------------------------------
 LEGAL CODE: http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
