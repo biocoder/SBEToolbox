@@ -19,7 +19,7 @@ Konganti K, Wang G, Yang E, Cai JJ* (2013). SBEToolbox: a Matlab toolbox for bio
 
 ![SBEToolbox](help/img/SBEToolbox_ScrShot_1.png "SBEToolbox v1.0 UI")
 ![SBEToolbox Plugins](help/img/SBEToolbox_ScrShot_2.png "Creating a new plugin from built in template code")
-![SBEToolbox Module](help/img/SBEToolbox_ScrShot_3.png "An overview visualization of detected modules")
+![SBEToolbox Module](help/img/SBEToolbox_ScrShot_3.jpg "An overview visualization of detected modules")
 ![SBEToolbox Annotation](help/img/SBEToolbox_ScrShot_4.png "Selecting an annotation database while annotating nodes on the command line")
 ![SBEToolbox v1.0 UI](help/img/SBEToolbox_ScrShot_5.png "Annotating a single node")
 ![SBEToolbox v1.0 UI](help/img/SBEToolbox_ScrShot_6.png "Getting full annotation of a single node")
