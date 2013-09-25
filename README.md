@@ -13,9 +13,9 @@ Some Screencasts: http://vimeo.com/64151952 and http://vimeo.com/63437114.
 
 Contact us on Twitter (@SBEToolbox).
 
-Reference ( In Press ):
------------------------
-Konganti K, Wang G, Yang E, Cai JJ* (2013). SBEToolbox: a Matlab toolbox for biological network analysis. Evolutionary Bioinformatics    
+Reference
+---------
+**Konganti K, Wang G, Yang E, Cai JJ* (2013). SBEToolbox: a Matlab Toolbox for Biological Network Analysis.** [Evolutionary Bioinformatics 2013:9 355-362](http://dx.doi.org/10.4137/EBO.S12012)
 
 ![SBEToolbox](help/img/SBEToolbox_ScrShot_1.png "SBEToolbox v1.0 UI")
 ![SBEToolbox Plugins](help/img/SBEToolbox_ScrShot_2.png "Creating a new plugin from built in template code")
