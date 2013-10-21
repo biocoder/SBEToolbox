@@ -23,3 +23,5 @@ Reference
 ![SBEToolbox Annotation](help/img/SBEToolbox_ScrShot_4.png "Selecting an annotation database while annotating nodes on the command line")
 ![SBEToolbox v1.0 UI](help/img/SBEToolbox_ScrShot_5.png "Annotating a single node")
 ![SBEToolbox v1.0 UI](help/img/SBEToolbox_ScrShot_6.png "Getting full annotation of a single node")
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/biocoder/sbetoolbox/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
