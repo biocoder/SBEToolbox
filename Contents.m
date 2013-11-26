@@ -55,6 +55,7 @@
 %   ---------------
 %
 %       save_GO_annotation      - Save GO annotation from file and store as MAT file.
+%       update_GO_annotation    - Updates GO annotations by downloading new annotation files from ftp://ftp.geneontology.org/pub/go/gene-associations/
 %       annotate_nodes          - Get short or full annotation for a node.
 %
 %   Module Detection
