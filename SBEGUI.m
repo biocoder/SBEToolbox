@@ -3540,14 +3540,14 @@ function updateMemoryUsage(src, eventdata, handles)
 %usedMem = totalMem - freeMem;
 
 if isunix
-    [~, grepVersion] = unix('grep --version | grep ''GNU grep''');
-    if str2double(regexp(regexprep(grepVersion, '\.', ''), '(\d+)', 'match')) < 251 
-        errordlg('GNU grep version 2.5.1 or greater required to update memory usage information');
-        stop(timerfindall('Name', 'SBEGUI_CurrentMemUsage'));
-        delete(timerfindall('Name', 'SBEGUI_CurrentMemUsage'));
-        return;
-    end
-    [~, MatlabMemUsedMB] = unix('ps aux | grep -iP ''[M]ATLAB.*?desktop'' | awk ''{print $6 / 1024}'' ');
+    %[~, grepVersion] = unix('grep --version | grep ''GNU grep''');
+    %if str2double(regexp(regexprep(grepVersion, '\.', ''), '(\d+)', 'match')) < 251 
+    %    errordlg('GNU grep version 2.5.1 or greater required to update memory usage information');
+    %    stop(timerfindall('Name', 'SBEGUI_CurrentMemUsage'));
+    %    delete(timerfindall('Name', 'SBEGUI_CurrentMemUsage'));
+    %    return;
+    %end
+    [~, MatlabMemUsedMB] = unix('ps aux | grep -i ''[M]ATLAB'' | grep ''desktop'' | awk ''{print $6 / 1024}'' ');
     if size(regexp(MatlabMemUsedMB, '[\n\r]', 'split'), 2) > 2
         waitfor(errordlg('More than 1 MATLAB instance is running on this machine. Cannot determine current MATLAB memory usage. Click on "Ok" to continue...'));
         stop(timerfindall('Name', 'SBEGUI_CurrentMemUsage'));
