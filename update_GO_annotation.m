@@ -21,10 +21,11 @@ if nargin < 1
     annoFTPDir = dir([annoPath, filesep, 'annotation']);
     wait_4_go_dls_h = waitbar(0, 'Downloading ...'); 
     for filei = 1:length(annoFTPDir)
-        if strcmp(annoFTPDir(filei).name, '.') || strcmp(annoFTPDir(filei).name, '..') ...
-                || strcmp(annoFTPDir(filei).name, '.svn') || ...
+        if strcmp(annoFTPDir(filei).name, '.') || strcmp(annoFTPDir(filei).name, '..') || ...
+                strcmp(annoFTPDir(filei).name, '.svn') || ...
                 strcmp(annoFTPDir(filei).name, 'speciesList.mat') || ...
-                strcmp(annoFTPDir(filei).name, 'ftpget')
+                strcmp(annoFTPDir(filei).name, 'ftpget') || ...
+                strcmp(annoFTPDir(filei).name, '.gitignore')
             continue;
         else
             species = strsplit(annoFTPDir(filei).name, '.');
@@ -37,10 +38,7 @@ if nargin < 1
         end
     end
     close(wait_4_go_dls_h);
-    annot_h = helpdlg('Download complete! Converting annotation files... This may take a few minutes...',...
-        'Updating Local Database');
-    save_GO_annotation; 
-    close(annot_h);
+    save_GO_annotation;
 else
    errordlg('This function does not accept any arguments.')
 end

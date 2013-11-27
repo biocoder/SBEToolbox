@@ -1,5 +1,5 @@
 % SBEToolbox (Systems Biology & Evolution Toolbox).
-% Version 1.0
+% Version 1.2
 % Authors: Kranti Konganti, Wang G, Yang E and James J. Cai
 % (C) Texas A&M University.
 %

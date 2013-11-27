@@ -30,7 +30,7 @@ function varargout = SBEGUI(varargin)
 % $LastChangedRevision: 742 $
 % $LastChangedBy: konganti $
 %
-% Last Modified by GUIDE v2.5 17-Jun-2013 11:11:15
+% Last Modified by GUIDE v2.5 27-Nov-2013 08:44:06
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -1264,7 +1264,7 @@ function HelpAbout_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.StatusBar, 'String', 'Busy');
 
-sbeversionstr='1.1';
+sbeversionstr='1.2';
 info{1}='Systems Biology & Evolution Toolbox  (SBEToolbox)';
 info{2}='';
 info{3}=sprintf(' Version: %s', sbeversionstr);
@@ -3624,6 +3624,15 @@ else
     set(handles.isRandomEvolution, 'checked', 'off');
 end
 SetMenuStatus(handles);
+
+% --------------------------------------------------------------------
+function UpdateAnnotationDatabases_Callback(hObject, eventdata, handles)
+% hObject    handle to UpdateAnnotationDatabases (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.StatusBar, 'String', 'Busy');
+update_GO_annotation
+set(handles.StatusBar, 'String', 'Ready');
 
 % --------------------------------------------------------------------
 % Function that will refresh the Network information pane and other

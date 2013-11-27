@@ -23,26 +23,32 @@ function save_GO_annotation(varargin)
 
 if nargin < 1
     annoFTPDir = dir([annoPath, filesep, 'annotation', filesep, 'ftpget']);
+    wait_4_go_dls_h = waitbar(0, 'Updating ...'); 
     for filei = 1:length(annoFTPDir)
         if strcmp(annoFTPDir(filei).name, '.') || strcmp(annoFTPDir(filei).name, '..') ...
-                || strcmp(annoFTPDir(filei).name, '.svn')
+                || strcmp(annoFTPDir(filei).name, '.svn') ...
+                || strcmp(annoFTPDir(filei).name, '.gitignore')
             continue;
         else
             file = [annoPath, filesep, 'annotation', filesep, 'ftpget', ...
                 filesep, annoFTPDir(filei).name];
+            species = strsplit(annoFTPDir(filei).name, '.');
             if regexpi(char(annoFTPDir(filei).name), '\.gz$')
                 [~, filename, ~] = fileparts(file);
-                disp(['Unzipping ', file]);
+                %disp(['Unzipping ', file]);
                 gunzip(file, ...
                     [annoPath, filesep, 'annotation', filesep, 'ftpget']);
                 delete(file);
                 file = [annoPath, filesep, 'annotation', filesep, 'ftpget', ...
                     filesep, filename];
             end
-            disp(['Saving annotation from ', file]);
+             waitbar(filei / length(annoFTPDir), wait_4_go_dls_h, sprintf('%s%s',...
+                'Updating ...  ',  char(strrep(species(2), '_', '\_'))));
             save_annot(annoPath, file);
+            delete(file);
         end
     end
+    close(wait_4_go_dls_h);
 else
    save_annot(annoPath, varargin{1});
 end
