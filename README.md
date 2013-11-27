@@ -5,7 +5,7 @@ SBEToolbox (Systems Biology and Evolution Toolbox) is developed in MATLAB as a m
 
 Some of its features include (but not limited to): algorithms to create random networks (small-world, ring lattice etc..), deduce clusters in the network (MCL, mCode, clusterOne) etc...
 
-VERSION 1.1 RELEASED !  
+VERSION 1.2 RELEASED !  
 
 Short WIKI: https://wsgi-promis.tamu.edu/projects/sbetoolbox/wiki/SBEToolbox_User_Manual.
 
