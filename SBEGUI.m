@@ -328,7 +328,7 @@ function HelpHelpContents_Callback(hObject, eventdata, handles)
 %        help_dir = '../help/';
 %    end
 %end
-open('Contents.html');
+web('Contents.html', '-browser');
 %web('http://sbetoolbox.sourceforge.net/Contents.html', '-browser');
 
 
@@ -1233,7 +1233,7 @@ function HelpWebsite_Callback(hObject, eventdata, handles)
 set(handles.StatusBar, 'String', 'Busy');
 
 try
-    web('https://sourceforge.net/projects/sbetoolbox/','-browser')
+    web('https://github.com/biocoder/SBEToolbox/releases', '-browser')
 catch exception
     errordlg(exception.message);
     set(handles.StatusBar, 'String', 'Ready');
@@ -1264,7 +1264,7 @@ function HelpAbout_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.StatusBar, 'String', 'Busy');
 
-sbeversionstr='1.2';
+sbeversionstr='1.3.1';
 info{1}='Systems Biology & Evolution Toolbox  (SBEToolbox)';
 info{2}='';
 info{3}=sprintf(' Version: %s', sbeversionstr);
