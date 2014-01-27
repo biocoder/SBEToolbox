@@ -3195,7 +3195,7 @@ charPluginList = selectPluginsDropDown_ButtonDownFcn(hObject, eventdata, handles
 ind = Search(charPluginList, 'Search Plugin List');
 if ind > 0
     selectPluginsDropDown_Callback(hObject, eventdata, handles, charPluginList{ind});
-    set(handles.searchPluginList, 'String', charPluginList{ind});
+    set(handles.searchPluginList, 'String', strcat('Using:', {' '}, charPluginList{ind}));
     set(handles.selectPluginsDropDown, 'enable', 'off');
 elseif isempty(sbeG)
     %set(handles.execute, 'enable', 'off');

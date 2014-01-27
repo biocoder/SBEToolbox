@@ -2,7 +2,7 @@ function outputCell = Correlation_Network(varargin)
 % Correlation_Network 
 % This plugin will infer Biological network from similarity matrices such 
 % as microarray data and convert it into node pairs for analysis with 
-% SBEToolbox. It uses mcxarray from MCL-Edge (http://m\icans.org/mcl/man/mcxarray.html) package.
+% SBEToolbox. It uses mcxarray from MCL-Edge (http://micans.org/mcl/man/mcxarray.html) package.
 %
 % Version 1.0
 %
@@ -55,7 +55,13 @@ filename = ['"', filename, '"'];
 %% Let user know if we are doing some initial compilation
 
 waitH = waitbar(0.10, 'Checking if mcxarray is compiled and ready...');
-if isunix && ~exist(['.', filesep, 'unix', filesep, 'bin', filesep, 'mcxarray'], 'file')
+if ismac && strcmpi(computer('arch'), 'maci64')
+    % Do nothing...
+elseif ismac && ~strcmpi(computer('arch'), 'maci64')
+    errordlg('Cannot use pre-compiled binaries for other than i64 architecture');
+    close(waitH);
+    return;
+elseif isunix && ~exist(['.', filesep, 'unix', filesep, 'bin', filesep, 'mcxarray'], 'file')
     waitbar(0.20, waitH, ['Compiling MCL-Edge for ', computer, ' architecture...']);
     [cmdStatus, ~] = unix(['.', filesep, 'mcl-12-068', filesep, ...
         'configure --prefix=', fileparts(which(mfilename)), ...
@@ -69,7 +75,12 @@ end
     
 %% Get appropriate mcxarray and mcxdump executables for system architecture
 
-if isunix
+if ismac && strcmpi(computer('arch'), 'maci64')
+    mcxarrayexe = ['"', fileparts(which(mfilename)), filesep, 'maci64', filesep, 'bin', ...
+        filesep, 'mcxarray"'];
+    mcxdumpexe = ['"', fileparts(which(mfilename)), filesep, 'maci64', filesep, 'bin', ...
+        filesep, 'mcxdump"'];
+elseif isunix
     mcxarrayexe = ['"', fileparts(which(mfilename)), filesep, 'unix', filesep, 'bin', ...
         filesep, 'mcxarray"'];
     mcxdumpexe = ['"', fileparts(which(mfilename)), filesep, 'unix', filesep, 'bin', ...
