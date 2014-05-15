@@ -1264,7 +1264,7 @@ function HelpAbout_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.StatusBar, 'String', 'Busy');
 
-sbeversionstr='1.3.1';
+sbeversionstr='1.3.2';
 info{1}='Systems Biology & Evolution Toolbox  (SBEToolbox)';
 info{2}='';
 info{3}=sprintf(' Version: %s', sbeversionstr);

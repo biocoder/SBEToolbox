@@ -1,3 +1,14 @@
 # Mac Folder Attribute Files #
 ##############################
 *.DS_Store
+
+# SIF and other Files #
+##############################
+addins/clusterone/input.sif
+addins/clusterone/input.sif
+addins/clusterone/output.txt
+addins/cytoscape/input.sif 
+addins/sigmajs/input.xml
+session/sbeEdit.mat
+session/sbeLargeConnNet.mat
+session/sbeVars.mat
