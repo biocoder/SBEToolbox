@@ -33,7 +33,7 @@ Attribution  —  You must attribute the work in the manner
                 wishes to be attributed for re-use. You can use the HTML here to
                 cite the work. Doing so will also include metadata on your page
                 so that others can find the original work as well.
-                   
+
 Noncommercial — You may not use this work for commercial purposes.
 
 Share Alike   — If you alter, transform, or build upon this work,
