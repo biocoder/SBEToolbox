@@ -15,9 +15,9 @@ Reference
 ---------
 **Konganti K, Wang G, Yang E, Cai JJ* (2013). SBEToolbox: a Matlab Toolbox for Biological Network Analysis.** [Evolutionary Bioinformatics 2013:9 355-362](http://dx.doi.org/10.4137/EBO.S12012)
 
-![SBEToolbox](help/img/SBEToolbox_ScrShot_1.png "SBEToolbox v1.0 UI")
-![SBEToolbox Plugins](help/img/SBEToolbox_ScrShot_2.png "Creating a new plugin from built in template code")
-![SBEToolbox Module](help/img/SBEToolbox_ScrShot_3.jpg "An overview visualization of detected modules")
-![SBEToolbox Annotation](help/img/SBEToolbox_ScrShot_4.png "Selecting an annotation database while annotating nodes on the command line")
-![SBEToolbox v1.0 UI](help/img/SBEToolbox_ScrShot_5.png "Annotating a single node")
-![SBEToolbox v1.0 UI](help/img/SBEToolbox_ScrShot_6.png "Getting full annotation of a single node")
+![SBEToolbox](https://raw.githubusercontent.com/biocoder/SBEToolbox/master/help/img/SBEToolbox_ScrShot_1.png "SBEToolbox v1.0 UI")
+![SBEToolbox Plugins](https://raw.githubusercontent.com/biocoder/SBEToolbox/master/help/img/SBEToolbox_ScrShot_2.png "Creating a new plugin from built in template code")
+![SBEToolbox Module](https://raw.githubusercontent.com/biocoder/SBEToolbox/master/help/img/SBEToolbox_ScrShot_3.jpg "An overview visualization of detected modules")
+![SBEToolbox Annotation](https://raw.githubusercontent.com/biocoder/SBEToolbox/master/help/img/SBEToolbox_ScrShot_4.png "Selecting an annotation database while annotating nodes on the command line")
+![SBEToolbox v1.0 UI](https://raw.githubusercontent.com/biocoder/SBEToolbox/master/help/img/SBEToolbox_ScrShot_5.png "Annotating a single node")
+![SBEToolbox v1.0 UI](https://raw.githubusercontent.com/biocoder/SBEToolbox/master/help/img/SBEToolbox_ScrShot_6.png "Getting full annotation of a single node")
