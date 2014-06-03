@@ -1,4 +1,4 @@
-SBEToolbox [![LICENSE](http://img.shields.io/badge/license-CC%20Share%20Alike%203.0-blue.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/) ![DLs](http://img.shields.io/badge/downloads-1K%20Total-yellow.svg)
+SBEToolbox [![LICENSE](http://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-blue.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/) ![DLs](http://img.shields.io/badge/downloads-1K%20Total-yellow.svg)
 ==========
 
 SBEToolbox (Systems Biology and Evolution Toolbox) is developed in MATLAB as a menu-driven UI software to determine various statistics of the biological network. 
