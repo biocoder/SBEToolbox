@@ -14,5 +14,5 @@ function viewnetinfo(sbeG,sbeNode)
 fprintf('Number of nodes: %d\n',size(sbeG,1));
 fprintf('Number of edges: %d\n',int32(nnz(sbeG)/2));
 
-%fprintf('Is symmetric: %d\n',issymmetric(sbeG));
+%fprintf('Is symmetric: %d\n',isgsymmetric(sbeG));
 %fprintf('Is simple: %d\n',issimple(sbeG));

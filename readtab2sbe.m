@@ -53,8 +53,7 @@ end
 %% Read file using fopen and textscan
 net_file = dir(filename);
 tab_file_id = fopen(filename, 'r');
-dataCell = textscan(tab_file_id,'%s%s%*[^\n\r]', 'delimiter', '\t',...
-    'Bufsize', net_file.bytes);
+dataCell = textscan(tab_file_id,'%s%s%*[^\n\r]', 'delimiter', '\t');
 c = [dataCell{1}; dataCell{2}];
 fclose(tab_file_id);
 

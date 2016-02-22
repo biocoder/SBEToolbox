@@ -1,5 +1,5 @@
 % SBEToolbox (Systems Biology & Evolution Toolbox).
-% Version 1.3.2
+% Version 1.3.3
 % Authors: Kranti Konganti, Wang G, Yang E and James J. Cai
 % (C) Texas A&M University.
 %
@@ -111,6 +111,6 @@
 %       modmat                   - Modularity matrix for undirected graph.
 %       symmetrizeadjmat         - Symmetrize network G.
 %       issimple                 - Check if network is simple (no self-loops, no double edges).
-%       issymmetric              - Check if network loaded into G is symmetric.
+%       isgsymmetric             - Check if network loaded into G is symmetric.
 %       cytoscaperun             - Export network in SIF format and invoke external program Cytoscape.
 %       moduleid2net             - Represents module id output in a matrix for plotting

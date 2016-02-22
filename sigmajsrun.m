@@ -19,7 +19,7 @@ sigmajs_dir = strcat(addins_dir, 'sigmajs', path_slash);
 %sigmajs_html_loc = strcat(addins_dir, 'sigmajs', path_slash, '*.html');
 tmp_input_file = strcat(addins_dir, 'sigmajs', path_slash, 'input.xml');
 
-if ~issymmetric(sbeG)
+if ~isgsymmetric(sbeG)
     [sbeG]=symmetrizeadjmat(sbeG);
 end
 

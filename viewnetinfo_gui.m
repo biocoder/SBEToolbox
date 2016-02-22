@@ -19,5 +19,5 @@ guiOutput{4} = sprintf('%s%s', 'Selected annotation database: ', ...
 
 %guiOutput{3} = sprintf('Number of edges ( including self connections ): %d',int32(nnz(sbeG)/2));
 
-%fprintf('Is symmetric: %d\n',issymmetric(sbeG));
+%fprintf('Is symmetric: %d\n',isgsymmetric(sbeG));
 %fprintf('Is simple: %d\n',issimple(sbeG));

@@ -1,6 +1,6 @@
-function [y]=issymmetric(G)
+function [y]=isgsymmetric(G)
 %
-% [y]=issymmetric(G)
+% [y]=isgsymmetric(G)
 %
 % Systems Biology and Evolution Toolbox (SBEToolbox).
 % Authors: James Cai, Kranti Konganti.

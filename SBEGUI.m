@@ -517,7 +517,7 @@ set(handles.StatusBar, 'String', 'Ready');
 %{
 set(handles.StatusBar, 'String', 'Busy');
 
-%[y]=issymmetric(sbeG);
+%[y]=isgsymmetric(sbeG);
 %fprintf('Is symmetric: %d\n',y);
 
 h=waitbar(0, 'Please wait...');
@@ -1124,10 +1124,10 @@ function EditSymmetrizeAdjacencyMatrix_Callback(hObject, eventdata, handles)
 global sbeG
 set(handles.StatusBar, 'String', 'Busy');
 
-if issymmetric(sbeG)
+if isgsymmetric(sbeG)
     set(hObject,'enable','off');
 end
-if ~issymmetric(sbeG)
+if ~isgsymmetric(sbeG)
     [sbeG]=symmetrizeadjmat(sbeG);
     msgbox('Adjacency matrix (sbeG) has been symmetrized.','help');
 end
@@ -1264,7 +1264,7 @@ function HelpAbout_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 set(handles.StatusBar, 'String', 'Busy');
 
-sbeversionstr='1.3.2';
+sbeversionstr='1.3.3';
 info{1}='Systems Biology & Evolution Toolbox  (SBEToolbox)';
 info{2}='';
 info{3}=sprintf(' Version: %s', sbeversionstr);
@@ -1633,7 +1633,7 @@ prompt={'Iterations:'};
        if mod(n1, 1) ~= 0
           errordlg('Invalid Iterations');
        else
-           if ~issymmetric(plot_sbeG)
+           if ~isgsymmetric(plot_sbeG)
                [plot_sbeG]=symmetrizeadjmat(plot_sbeG);
            end
            if n1 >= 500, h=waitbar(0.5, ['Please wait... Running Frucherman-Reingold layout for ', num2str(n1), ' iterations']); end
@@ -1680,7 +1680,7 @@ function LayoutKamadaKawaiSpring_Callback(hObject, eventdata, handles)
 global sbeG sbeNode
 set(handles.StatusBar, 'String', 'Busy');
 
-if ~issymmetric(sbeG)
+if ~isgsymmetric(sbeG)
     [sbeG]=symmetrizeadjmat(sbeG);
 end
 
@@ -2964,7 +2964,7 @@ if isempty(s)
     return;
 end
 
-if ~issymmetric(plot_sbeG)
+if ~isgsymmetric(plot_sbeG)
     [plot_sbeG]=symmetrizeadjmat(plot_sbeG);
 end
 
@@ -3744,7 +3744,7 @@ else
         set(handles.NetworkInformation, 'String', guiOutput);
     end  
     
-    if issymmetric(sbeG)
+    if isgsymmetric(sbeG)
         set(handles.EditSymmetrizeAdjacencyMatrix,'enable','off');
     end    
     
